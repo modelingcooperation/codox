@@ -390,7 +390,7 @@
      [:div.doc (format-document project doc)]]]))
 
 (defn- var-usage [var]
-  (for [arglist (:arglists var)]
+  (for [arglist (filter coll? (:arglists var))]
     (list* (:name var) arglist)))
 
 (defn- added-and-deprecated-docs [var]
